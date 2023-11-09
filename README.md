@@ -36,14 +36,14 @@ Ce dernier exercice consiste à écrire un programme nommé `my-find.c` qui perm
 
 ## Exercice 5
 
-Cet exercice consiste à écrire le programme nommé `next-dir.c` qui va permettre de lister uniquement les répertoires dans le répertoire cible. La liste affichée ignorera également les répertoires spéciaux `.` et `..`.
+Cet exercice consiste à écrire le programme nommé `next-entry.c` qui va permettre de lister les entrées du répertoire cible. La liste affichée ignorera les répertoires spéciaux `.` et `..`.
 
-Le principe est de définir une fonction `next_dir` qui prend en paramètre le répertoire ouvert et renvoie le prochain répertoire non spécial. Vous vous inspirerez du code ci dessous :
+Le principe est de définir une fonction `next_entry` qui prend en paramètre le répertoire ouvert et renvoie le prochain répertoire non spécial. Vous vous inspirerez du code ci dessous :
 
 ```c
 #include <dirent.h>
 
-struct dirent *next_dir(DIR *dir) {
+struct dirent *next_entry(DIR *dir) {
 	struct dirent *entry = NULL;
 	// Your code here
 	return entry;
@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
 	if (!dir)
 		return -1;
 	struct dirent *entry;
-	while ((entry = next_dir(dir)) != NULL) {
+	while ((entry = next_entry(dir)) != NULL) {
 		printf("%s\n", entry->d_name);
 	}
 	
